@@ -7,9 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
-public class FileServletFreemarker extends HttpServlet {
+public class FileServletFreemarker2 extends HttpServlet {
 
   /**
    * http://localhost:8080/fm
@@ -21,6 +24,15 @@ public class FileServletFreemarker extends HttpServlet {
     HashMap<String, Object> data = new HashMap<>();
     data.put("name", "Jim");
 
-    engine.render("dynamic1.ftl", data, resp);
+    List<Student> ss = Arrays.asList(
+        new Student("Jim", 33, "FS11"),
+        new Student("Jack", 34, "FS12"),
+        new Student("James", 35, "FS13")
+    );
+
+    data.put("students", ss);
+    data.put("total", ss.size());
+
+    engine.render("dynamic2.ftl", data, resp);
   }
 }
