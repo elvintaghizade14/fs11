@@ -1,6 +1,6 @@
 package lesson03.service;
 
-import lesson03.domain.OperationLog;
+import lesson03.model.OperationLog;
 
 import java.util.ArrayList;
 

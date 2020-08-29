@@ -1,6 +1,7 @@
 package lesson03;
 
 import lesson03.service.InMemoryStorage;
+import lesson03.service.SQLStorage;
 import lesson03.service.Storage;
 import lesson03.servlet.CalcServlet;
 import lesson03.servlet.HistoryServlet;
@@ -34,17 +35,22 @@ public class App3 {
    */
 
   public static void main(String[] args) throws Exception {
-    Storage storage = new InMemoryStorage();
+    Storage storage =
+//        new InMemoryStorage();
+        new SQLStorage();
 
     Server server = new Server(8080);
     ServletContextHandler handler = new ServletContextHandler();
 
+    // menu
     handler.addServlet(IndexServlet.class, "/home");
+    // calc
     handler.addServlet(new ServletHolder(
         new CalcServlet(storage)), "/calc");
+    // history
     handler.addServlet(new ServletHolder(
         new HistoryServlet(storage)), "/history");
-
+    // redirect
     handler.addServlet(RedirectServlet.class, "/*");
 
     server.setHandler(handler);

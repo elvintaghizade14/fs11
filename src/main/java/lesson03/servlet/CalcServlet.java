@@ -1,9 +1,9 @@
 package lesson03.servlet;
 
-import lesson01.service.CalcService;
-import lesson01.util.Params;
-import lesson03.domain.OperationLog;
+import lesson03.domain.CalcService;
+import lesson03.model.OperationLog;
 import lesson03.service.Storage;
+import lesson03.util.Params;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;

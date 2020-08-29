@@ -1,10 +1,10 @@
-package lesson03.domain;
+package lesson03.model;
 
 public class OperationLog {
-  private final int a;
-  private final int b;
-  private final String op;
-  private final int r;
+  public final int a;
+  public final int b;
+  public final String op;
+  public final int r;
 
   public OperationLog(int a, int b, String op, int r) {
     this.a = a;

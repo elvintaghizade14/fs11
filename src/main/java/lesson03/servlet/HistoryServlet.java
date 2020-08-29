@@ -1,7 +1,7 @@
 package lesson03.servlet;
 
 import lesson02.util.TemplateEngine;
-import lesson03.domain.OperationLog;
+import lesson03.model.OperationLog;
 import lesson03.service.Storage;
 
 import javax.servlet.ServletException;
