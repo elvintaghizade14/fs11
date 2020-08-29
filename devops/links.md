@@ -1,0 +1,4 @@
+- [Jetty home page](https://www.eclipse.org/jetty/)
+- [Upload idea from here](https://stackoverflow.com/questions/17652530/how-to-implement-fileupload-in-embedded-jetty)
+- []()
+- []()

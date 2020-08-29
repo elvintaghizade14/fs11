@@ -14,4 +14,13 @@ public class CalcService {
         )
     );
   }
+  public Optional<Integer> sub(
+      Optional<Integer> a,
+      Optional<Integer> b) {
+    return a.flatMap(ai ->
+        b.map(bi ->
+            calc.sub(ai, bi)
+        )
+    );
+  }
 }

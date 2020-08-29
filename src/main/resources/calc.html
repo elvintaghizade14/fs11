@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 53px 0px rgba(0, 0, 0, 0.19);
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: gray 1px solid;
+        }
+        select {
+            padding: 8px;
+            border-radius: 4px;
+            border: gray 1px solid;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px;
+            border-radius: 8px;
+            border: gray 1px solid;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<form action="calc" method="POST">
+    <input name="a" type="number" placeholder="number A">
+    <input name="b" type="number" placeholder="number B">
+    <select name="operation" id="">
+        <option value="minus">-</option>
+        <option value="plus">+</option>
+    </select>
+    <button>Calc Now</button>
+</form>
+</body>
+</html>
