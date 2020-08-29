@@ -2,6 +2,8 @@ package lesson03.servlet;
 
 import lesson01.service.CalcService;
 import lesson01.util.Params;
+import lesson03.domain.OperationLog;
+import lesson03.service.Storage;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -27,6 +29,11 @@ import java.util.Optional;
 public class CalcServlet extends HttpServlet {
 
   private final CalcService calc = new CalcService();
+  private final Storage storage;
+
+  public CalcServlet(Storage storage) {
+    this.storage = storage;
+  }
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,12 +60,23 @@ public class CalcServlet extends HttpServlet {
         b.flatMap(bi ->
             ops.flatMap(op -> {
               switch (op) {
-                case "plus":  return calc.add(a, b);
-                case "minus": return calc.sub(a, b);
+                case "plus":
+                  return calc.add(a, b)
+                      .map(r -> {
+                        storage.log(new OperationLog(ai, bi, "+", r));
+                        return r;
+                      });
+                case "minus":
+                  return calc.sub(a, b)
+                      .map(r -> {
+                        storage.log(new OperationLog(ai, bi, "-", r));
+                        return r;
+                      });
+
                 default:      return Optional.empty();
               }
             })
-                .map(r -> represent(ai, bi, "", r))
+                .map(r -> represent(ai, bi, ops.orElse(""), r))
         )
     );
 
